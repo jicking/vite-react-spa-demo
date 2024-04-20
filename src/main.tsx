@@ -2,7 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { Root, ErrorPage, Home, About } from './routes'
+import { Root } from './routes/root'
+import { ErrorPage } from './routes/error'
+import { About } from './routes/about'
+import { Index } from './routes'
+import { Account } from './routes/account'
+import { Signin } from './routes/account/signin'
 
 const router = createHashRouter([
   {
@@ -12,11 +17,24 @@ const router = createHashRouter([
     children: [
       {
         path: '/',
-        element: <Home />,
+        element: <Index />,
       },
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/account',
+        children: [
+          {
+            path: '/account',
+            element: <Account />,
+          },
+          {
+            path: '/account/signin',
+            element: <Signin />,
+          },
+        ],
       },
     ],
   },

@@ -18,8 +18,8 @@ export function Root() {
                 <Link to={`about`}>About</Link>
               </li>
               <li>
-                <Link to={`x`} className="btn-link">
-                  CTA Button
+                <Link to={`account/signin`} className="btn-link">
+                  Signin
                 </Link>
               </li>
             </ul>
