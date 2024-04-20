@@ -1,29 +1,109 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-bg: black;
+  --color-primary: #f34a53;
+  --font-family: 'Segoe UI';
+  --font-size: 18px;
+  --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 16px;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  color: white;
+  background-color: var(--color-bg);
 }
 
-body {
+* {
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+/** containers **/
+
+.page-root {
+  font-size: 1rem;
+  font-family: var(--font-family);
+  color: white;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 'header' 'main' 'footer';
+}
+
+.page-header {
+  font-weight: normal;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 2px solid var(--color-primary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-link-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.inline-link-container ul {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  display: flex;
+}
+
+.inline-link-container li {
+  margin-right: var(--spacing-lg);
+}
+
+.inline-link-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.page-main {
+  padding: 0;
+}
+
+.page-footer {
+  font-weight: thin;
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/** components **/
+
+.content {
+  padding: var(--spacing-md);
+}
+
+.btn {
+  font-weight: bold;
+  color: white;
+  background-color: var(--color-primary);
+  padding: var(--spacing-sm);
+  margin-right: var(--spacing-sm);
+  border: none;
+}
+
+.btn-link {
+  font-weight: bold;
+  color: white;
+  background-color: var(--color-primary);
+  padding: 0 var(--spacing-sm);
+  border: none;
+}
+
+/** utils **/
+
+.red {
+  color: #f34a53;
+}
+
+.flex {
+  display: flex;
+}
+
+.brand {
+  font-weight: bold;
 }

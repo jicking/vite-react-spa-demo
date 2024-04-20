@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import { Root, ErrorPage, Home, Contact } from './routes'
+import { Root, ErrorPage, Home, About } from './routes'
 
 const router = createHashRouter([
   {
@@ -15,8 +15,8 @@ const router = createHashRouter([
         element: <Home />,
       },
       {
-        path: 'contacts/:contactId',
-        element: <Contact />,
+        path: '/about',
+        element: <About />,
       },
     ],
   },
