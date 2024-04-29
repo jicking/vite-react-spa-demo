@@ -8,6 +8,7 @@ import { About } from './routes/about'
 import { Index } from './routes'
 import { Account } from './routes/account'
 import { Signin } from './routes/account/signin'
+import { Demo } from './routes/demo'
 
 const router = createHashRouter([
   {
@@ -22,6 +23,10 @@ const router = createHashRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/demo',
+        element: <Demo />,
       },
       {
         path: '/account',

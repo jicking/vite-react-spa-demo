@@ -18,6 +18,9 @@ export function Root() {
                 <Link to={`about`}>About</Link>
               </li>
               <li>
+                <Link to={`demo`}>Demo</Link>
+              </li>
+              <li>
                 <Link to={`account/signin`} className="btn-link">
                   Signin
                 </Link>
