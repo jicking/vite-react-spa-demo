@@ -1,6 +1,9 @@
 import { Outlet, Link } from 'react-router-dom'
+import { useApp } from '../hooks/useApp'
 
 export function Root() {
+  const { username } = useApp()
+
   return (
     <>
       <div className="page-root">
@@ -20,11 +23,22 @@ export function Root() {
               <li>
                 <Link to={`demo`}>Demo</Link>
               </li>
-              <li>
-                <Link to={`account/signin`} className="btn-link">
-                  Signin
-                </Link>
-              </li>
+              {username ? (
+                <>
+                  <li>
+                    <Link to={`account`}>{`Hello ${username}`}</Link>
+                  </li>
+                  <li>
+                    <button>Logout</button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link to={`account/signin`} className="btn-link">
+                    Signin
+                  </Link>
+                </li>
+              )}
             </ul>
           </nav>
         </header>
