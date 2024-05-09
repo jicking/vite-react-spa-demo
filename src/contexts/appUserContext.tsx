@@ -1,18 +1,18 @@
 import React, { ReactNode, useState } from 'react'
 
-type UserContextProps = {
+type AppUserContextProps = {
   username: string | undefined
   signin: (username: string) => void
   signout: () => void
 }
 
-export const AppContext = React.createContext<UserContextProps>({})
+export const AppUserContext = React.createContext<AppUserContextProps>({})
 
 interface AppProviderProps {
   children: ReactNode
 }
 
-export function AppProvider({ children }: AppProviderProps) {
+export function AppUserProvider({ children }: AppProviderProps) {
   const [username, setUsername] = useState<string | undefined>(undefined)
 
   const signin = (username: string) => {
@@ -24,9 +24,9 @@ export function AppProvider({ children }: AppProviderProps) {
   }
 
   return (
-    <AppContext.Provider value={{ username, signin, signout }}>
+    <AppUserContext.Provider value={{ username, signin, signout }}>
       {children}
-    </AppContext.Provider>
+    </AppUserContext.Provider>
   )
 }
 

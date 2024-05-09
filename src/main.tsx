@@ -9,7 +9,7 @@ import { Index } from './routes'
 import { Account } from './routes/account'
 import { Signin } from './routes/account/signin'
 import { Demo } from './routes/demo'
-import { AppProvider } from './contexts/appContext'
+import { AppUserProvider } from './contexts/appUserContext'
 
 const router = createHashRouter([
   {
@@ -48,8 +48,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <AppProvider>
+    <AppUserProvider>
       <RouterProvider router={router} />
-    </AppProvider>
+    </AppUserProvider>
   </React.StrictMode>,
 )

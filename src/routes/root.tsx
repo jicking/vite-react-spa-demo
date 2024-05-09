@@ -1,8 +1,8 @@
 import { Outlet, Link } from 'react-router-dom'
-import { useApp } from '../hooks/useApp'
+import { useAppUser } from '../hooks/useAppUser'
 
 export function Root() {
-  const { username } = useApp()
+  const { username } = useAppUser()
 
   return (
     <>
