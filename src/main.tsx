@@ -40,6 +40,10 @@ const router = createHashRouter([
             path: '/account/signin',
             element: <Signin />,
           },
+          {
+            path: '/account/signout',
+            element: <Signin />,
+          },
         ],
       },
     ],

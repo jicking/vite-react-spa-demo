@@ -24,14 +24,9 @@ export function Root() {
                 <Link to={`demo`}>Demo</Link>
               </li>
               {username ? (
-                <>
-                  <li>
-                    <Link to={`account`}>{`Hello ${username}`}</Link>
-                  </li>
-                  <li>
-                    <button>Logout</button>
-                  </li>
-                </>
+                <li>
+                  <Link to={`account`}>Account</Link>
+                </li>
               ) : (
                 <li>
                   <Link to={`account/signin`} className="btn-link">

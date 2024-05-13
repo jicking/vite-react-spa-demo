@@ -1,24 +1,23 @@
 import { useAppUser } from "../../hooks/useAppUser"
+import { Navigate } from "react-router-dom"
 
 export function Signin() {
-  const { username, signin, signout } = useAppUser()
+  const { username, signin } = useAppUser()
 
-  const signinView = <>
-    <h1>Signin</h1>
-    <button onClick={() => signin('testUser')}>Signin</button>
-  </>
-
-  const authenticatedView = (
-    <>
-      <h1>Welcome {username}</h1>
-      <button onClick={signout}>Signout</button>
-    </>
-  )
+  if (username) {
+    return <Navigate to="/account" />
+  }
 
   return (
     <article className="content">
-      {username && authenticatedView}
-      {!username && signinView}
+      <h1>Signin</h1>
+      <button
+        onClick={() => {
+          signin('testUser')
+        }}
+      >
+        Signin
+      </button>
 
       {/* <form action="login.php" method="post">
         <div className="form-group">
