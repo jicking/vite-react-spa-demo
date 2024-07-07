@@ -1,26 +1,32 @@
-import React, { ReactNode, useState } from 'react'
+import { ReactNode, useState, createContext, FC } from 'react'
 
 type AppUserContextProps = {
-  username: string | undefined
-  signin: (username: string) => void
-  signout: () => void
+  username?: string
+  signin: (username: string, callback: VoidFunction | undefined) => void
+  signout: (callback: VoidFunction | undefined) => void
 }
 
-export const AppUserContext = React.createContext<AppUserContextProps>({})
+export const AppUserContext = createContext<AppUserContextProps>({
+  username: undefined,
+  signin: () => {},
+  signout: () => {},
+})
 
 interface AppProviderProps {
   children: ReactNode
 }
 
-export function AppUserProvider({ children }: AppProviderProps) {
-  const [username, setUsername] = useState<string | undefined>(undefined)
+export const AppUserProvider: FC<AppProviderProps> = ({ children }) => {
+  const [username, setUsername] = useState<string | undefined>()
 
-  const signin = (username: string) => {
+  const signin = (username: string, callback: VoidFunction | undefined) => {
     setUsername(username)
+    if (callback) callback()
   }
 
-  const signout = () => {
+  const signout = (callback: VoidFunction | undefined) => {
     setUsername(undefined)
+    if (callback) callback()
   }
 
   return (
@@ -29,4 +35,3 @@ export function AppUserProvider({ children }: AppProviderProps) {
     </AppUserContext.Provider>
   )
 }
-

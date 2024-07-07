@@ -1,7 +1,7 @@
-import { useContext } from "react"
-import { AppUserContext } from "../contexts/appUserContext"
+import { useContext } from 'react'
+import { AppUserContext } from '../contexts/appUserContext'
 
-export function useAppUser() {
+export function useAuth() {
   const context = useContext(AppUserContext)
   if (context === undefined) {
     throw new Error('useApp must be used within a AppUserProvider')

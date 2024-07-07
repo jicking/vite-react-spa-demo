@@ -1,35 +1,36 @@
 import { Outlet, Link } from 'react-router-dom'
-import { useAppUser } from '../hooks/useAppUser'
+import { useAuth } from '../hooks/useAuth'
+import { APP, ROUTE_PATHS } from '../utils/constants'
 
-export function Root() {
-  const { username } = useAppUser()
+export function DefaultPageLayout() {
+  const { username } = useAuth()
 
   return (
     <>
       <div className="page-root">
         <header className="page-header">
           <div className="brand">
-            Brand <span className="red">Logo</span>
+            {APP.name} <span className="red">{APP.version}</span>
           </div>
 
           <nav className="inline-link-container">
             <ul>
               <li>
-                <Link to={`/`}>Home</Link>
+                <Link to={ROUTE_PATHS.homePage}>Home</Link>
               </li>
               <li>
-                <Link to={`about`}>About</Link>
+                <Link to={ROUTE_PATHS.aboutPage}>About</Link>
               </li>
               <li>
-                <Link to={`demo`}>Demo</Link>
+                <Link to={ROUTE_PATHS.demoPage}>Demo</Link>
               </li>
               {username ? (
                 <li>
-                  <Link to={`account`}>Account</Link>
+                  <Link to={ROUTE_PATHS.appDashboardPage}>Dashboard</Link>
                 </li>
               ) : (
                 <li>
-                  <Link to={`account/signin`} className="btn-link">
+                  <Link to={ROUTE_PATHS.accountSigninPage} className="btn-link">
                     Signin
                   </Link>
                 </li>
@@ -42,7 +43,9 @@ export function Root() {
           <Outlet />
         </main>
 
-        <footer className="page-footer">© 2022 Brand - v1.0</footer>
+        <footer className="page-footer">
+          © {new Date().getFullYear()} {APP.name} v{APP.version}
+        </footer>
       </div>
     </>
   )

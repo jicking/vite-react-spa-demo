@@ -1,35 +1,35 @@
-import { useAppUser } from "../../hooks/useAppUser"
-import { Navigate } from "react-router-dom"
+import { useState } from 'react'
+import { useAuth } from '../../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
+import { ROUTE_PATHS } from '../../utils/constants'
 
-export function Signin() {
-  const { username, signin } = useAppUser()
+export const Signin = () => {
+  const [username, setUsername] = useState('')
+  const navigate = useNavigate()
+  const auth = useAuth()
 
-  if (username) {
-    return <Navigate to="/account" />
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+    auth.signin(username, () => {
+      navigate(ROUTE_PATHS.appDashboardPage)
+    })
   }
 
   return (
-    <article className="content">
+    <article>
       <h1>Signin</h1>
-      <button
-        onClick={() => {
-          signin('testUser')
-        }}
-      >
-        Signin
-      </button>
-
-      {/* <form action="login.php" method="post">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <input className="btn" type="submit" value="Signin" />
-      </form> */}
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Signin</button>
+      </form>
     </article>
   )
 }
