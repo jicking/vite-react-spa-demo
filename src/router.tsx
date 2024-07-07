@@ -1,7 +1,7 @@
 import { createHashRouter } from 'react-router-dom'
 import { DefaultPageLayout } from './layouts/defaultPageLayout'
 import { ErrorPage } from './routes/error'
-import { Index } from './routes'
+import Home from './routes/home'
 import { About } from './routes/about'
 import { Demo } from './routes/demo'
 import { Signin } from './routes/account/signin'
@@ -17,7 +17,7 @@ export const router = createHashRouter([
     children: [
       {
         path: ROUTE_PATHS.homePage,
-        element: <Index />,
+        element: <Home />,
       },
       {
         path: ROUTE_PATHS.aboutPage,
