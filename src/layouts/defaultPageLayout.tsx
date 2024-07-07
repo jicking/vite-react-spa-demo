@@ -1,9 +1,11 @@
 import { Outlet, Link } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { APP, ROUTE_PATHS } from '../utils/constants'
+import usePageTitle from '../hooks/usePageTitle'
 
 export function DefaultPageLayout() {
   const { username } = useAuth()
+  usePageTitle(`${APP.name} ${APP.version}`)
 
   return (
     <>
