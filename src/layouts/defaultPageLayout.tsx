@@ -12,7 +12,7 @@ export function DefaultPageLayout() {
       <div className="page-root">
         <header className="page-header">
           <div className="brand">
-            {APP.name} <span className="red">{APP.env}</span>
+            {APP.name} <span className="red">v{APP.version}</span>
           </div>
 
           <nav className="inline-link-container">

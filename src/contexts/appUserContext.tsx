@@ -36,7 +36,7 @@ export const AppUserProvider: FC<AppProviderProps> = ({ children }) => {
     // handle de auth on http request interceptor
     Cookies.set(COOKIE_KEYS.token, username, {
       // httpOnly: true, // Only set on server cookie response to prevent JavaScript access
-      secure: APP.env === 'production', // Use secure cookies in production
+      secure: APP.env.toLowercase() === 'production', // Use secure cookies in production
       sameSite: 'Strict', // Mitigate CSRF attacks
     })
 
