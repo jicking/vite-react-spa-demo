@@ -10,9 +10,7 @@ export const Account = () => {
   return (
     <article className="content">
       <h1>{toPascalCase(username || '')}'s Account</h1>
-      <p>
-        Add Account Settings/Details Here...
-      </p>
+      <p>Add Account Settings/Details Here...</p>
       <button
         onClick={() => signout(() => navigate(ROUTE_PATHS.accountSigninPage))}
       >
