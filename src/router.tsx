@@ -1,4 +1,4 @@
-import { createHashRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import { DefaultPageLayout } from './layouts/defaultPageLayout'
 import { ErrorPage } from './routes/error'
 import Home from './routes/home'
@@ -9,7 +9,7 @@ import { Dashboard } from './routes/app/dashboard'
 import RequireAuth from './components/requireAuth'
 import { ROUTE_PATHS } from './utils/constants'
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: '/',
     element: <DefaultPageLayout />,

@@ -7,11 +7,14 @@ export const Signin = () => {
   const [username, setUsername] = useState('')
   const navigate = useNavigate()
   const auth = useAuth()
+  const urlParams = new URLSearchParams(window.location.search)
+  const redirectPath = urlParams.get('redirect')
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     auth.signin(username, () => {
-      navigate(ROUTE_PATHS.appDashboardPage)
+      if (redirectPath) navigate(redirectPath)
+      else navigate(ROUTE_PATHS.appDashboardPage)
     })
   }
 
