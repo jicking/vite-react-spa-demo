@@ -1,6 +1,6 @@
 import { ReactNode, useState, createContext, FC, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import { APP, COOKIE_KEYS, LOCALSTORAGE_KEYS } from '../utils/constants'
+import { COOKIE_KEYS, LOCALSTORAGE_KEYS } from '../utils/constants'
 
 type AppUserContextProps = {
   username?: string
@@ -48,7 +48,7 @@ export const AppUserProvider: FC<AppProviderProps> = ({ children }) => {
     localStorage.removeItem(LOCALSTORAGE_KEYS.username)
 
     Cookies.remove(COOKIE_KEYS.token)
-    
+
     if (callback) callback()
   }
 

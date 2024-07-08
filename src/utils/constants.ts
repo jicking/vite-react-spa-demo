@@ -11,12 +11,12 @@ export const ROUTE_PATHS = {
 }
 
 export const APP = {
-    name: 'DemoApp',
-    version: '0.1.0-beta'
+  name: 'DemoApp',
+  version: '0.1.0-beta',
 }
 
 export const COOKIE_KEYS = {
-  token: `${APP.name}-token`
+  token: `${APP.name}-token`,
 }
 
 export const LOCALSTORAGE_KEYS = {
