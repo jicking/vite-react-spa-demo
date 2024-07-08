@@ -12,7 +12,7 @@ export function DefaultPageLayout() {
       <div className="page-root">
         <header className="page-header">
           <div className="brand">
-            {APP.name} <span className="red">{APP.version}</span>
+            {APP.name} <span className="red">{APP.env}</span>
           </div>
 
           <nav className="inline-link-container">
@@ -43,7 +43,7 @@ export function DefaultPageLayout() {
         </main>
 
         <footer className="page-footer">
-          © {new Date().getFullYear()} {APP.name} v{APP.version}
+          © {new Date().getFullYear()} {APP.name} v{APP.version} ({APP.env})
         </footer>
       </div>
     </>
