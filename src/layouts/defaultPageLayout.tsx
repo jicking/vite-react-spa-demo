@@ -23,9 +23,6 @@ export function DefaultPageLayout() {
               <li>
                 <Link to={ROUTE_PATHS.aboutPage}>About</Link>
               </li>
-              <li>
-                <Link to={ROUTE_PATHS.demoPage}>Demo</Link>
-              </li>
               {username ? (
                 <li>
                   <Link to={ROUTE_PATHS.appDashboardPage}>Dashboard</Link>

@@ -1,12 +1,13 @@
 export const ROUTE_PATHS = {
   homePage: '/',
   aboutPage: '/about',
-  demoPage: '/demo',
   account: '/account',
   accountPage: '/account',
   accountSigninPage: '/account/signin',
   app: '/app',
   appDashboardPage: '/app',
+  demos: '/demos',
+  demosSimpleComponentPage: '/demos/simple-component',
 }
 
 export const APP = {

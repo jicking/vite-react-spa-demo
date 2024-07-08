@@ -1,9 +1,9 @@
-import FunctionComponentDemo from '../components/functionComponentDemo'
+import FunctionComponentDemo from '../../components/functionComponentDemo'
 
-export function Demo() {
+export function SimpleComponent() {
   return (
     <article className="content">
-      <h1>Demo</h1>
+      <h1>Simple Component</h1>
       <p>Component demos...</p>
       <FunctionComponentDemo
         name="Test Component"

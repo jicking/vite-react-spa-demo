@@ -3,7 +3,7 @@ import { DefaultPageLayout } from './layouts/defaultPageLayout'
 import { ErrorPage } from './routes/error'
 import Home from './routes/home'
 import { About } from './routes/about'
-import { Demo } from './routes/demo'
+import { SimpleComponent } from './routes/demo/simpleComponent'
 import { Signin } from './routes/account/signin'
 import { Dashboard } from './routes/app/dashboard'
 import RequireAuth from './components/requireAuth'
@@ -22,10 +22,6 @@ export const router = createHashRouter([
       {
         path: ROUTE_PATHS.aboutPage,
         element: <About />,
-      },
-      {
-        path: ROUTE_PATHS.demoPage,
-        element: <Demo />,
       },
       {
         path: ROUTE_PATHS.accountSigninPage,
@@ -48,6 +44,16 @@ export const router = createHashRouter([
           {
             path: ROUTE_PATHS.appDashboardPage,
             element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        path: ROUTE_PATHS.demos,
+        element: <RequireAuth />,
+        children: [
+          {
+            path: ROUTE_PATHS.demosSimpleComponentPage,
+            element: <SimpleComponent />,
           },
         ],
       },

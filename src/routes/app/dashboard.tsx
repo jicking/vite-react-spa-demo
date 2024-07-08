@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { toPascalCase } from '../../utils/string'
 import { ROUTE_PATHS } from '../../utils/constants'
@@ -23,12 +23,17 @@ export const Dashboard = () => {
       <h2>Demo Pages</h2>
       <nav>
         <ul>
-          <li> Simple Component Template </li>
+          <li>
+            <Link to={ROUTE_PATHS.demosSimpleComponentPage}>
+              Simple Component Demo
+            </Link>
+          </li>
           <li> Page data using Loader </li>
           <li> Demo Actions </li>
           <li> Form Validation </li>
           <li> Form Submit using Data Fetcher </li>
           <li> Pull Dropdown items from 3rd party API </li>
+          <li> Pull Data based on selected option item </li>
           <li> Map Pins </li>
         </ul>
       </nav>
