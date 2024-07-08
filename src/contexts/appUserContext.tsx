@@ -1,6 +1,6 @@
 import { ReactNode, useState, createContext, FC, useEffect } from 'react'
 import Cookies from 'js-cookie'
-import { COOKIE_KEYS, LOCALSTORAGE_KEYS } from '../utils/constants'
+import { APP, COOKIE_KEYS, LOCALSTORAGE_KEYS } from '../utils/constants'
 
 type AppUserContextProps = {
   username?: string
@@ -36,7 +36,7 @@ export const AppUserProvider: FC<AppProviderProps> = ({ children }) => {
     // handle de auth on http request interceptor
     Cookies.set(COOKIE_KEYS.token, username, {
       // httpOnly: true, // Only set on server cookie response to prevent JavaScript access
-      secure: import.meta.env.VITE_NODE_ENV === 'production', // Use secure cookies in production
+      secure: APP.env === 'production', // Use secure cookies in production
       sameSite: 'Strict', // Mitigate CSRF attacks
     })
 
